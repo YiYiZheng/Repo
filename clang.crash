@@ -1,0 +1,168 @@
+Process:               clang [63641]
+Path:                  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+Identifier:            clang
+Version:               12.0.0 (1200.0.32)
+Code Type:             X86-64 (Native)
+Parent Process:        clang [63640]
+Responsible:           Xcode [46717]
+User ID:               501
+
+Date/Time:             2020-11-16 16:12:53.130 +0800
+OS Version:            macOS 11.0.1 (20B29)
+Report Version:        12
+Anonymous UUID:        8C0B69F7-2AD6-D1C2-14FA-C4ECE39C94C7
+
+Sleep/Wake UUID:       1D311994-7C28-4FA2-B7A5-064044BF64A2
+
+Time Awake Since Boot: 40000 seconds
+Time Since Wake:       9400 seconds
+
+System Integrity Protection: disabled
+
+Crashed Thread:        0  Dispatch queue: com.apple.main-thread
+
+Exception Type:        EXC_BAD_ACCESS (SIGSEGV)
+Exception Codes:       KERN_INVALID_ADDRESS at 0x00000000000000c8
+Exception Note:        EXC_CORPSE_NOTIFY
+
+Termination Signal:    Segmentation fault: 11
+Termination Reason:    Namespace SIGNAL, Code 0xb
+Terminating Process:   exc handler [63641]
+
+VM Regions Near 0xc8:
+--> 
+    __TEXT                      10b076000-10f33a000    [ 66.8M] r-x/r-x SM=COW  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+
+Application Specific Information:
+dyld2 mode
+
+Thread 0 Crashed:: Dispatch queue: com.apple.main-thread
+0   clang                         	0x000000010cc2b986 clang::CodeGen::CodeGenModule::EmitTopLevelDecl(clang::Decl*) + 1222
+1   clang                         	0x000000010ccc5e41 (anonymous namespace)::CodeGeneratorImpl::HandleTopLevelDecl(clang::DeclGroupRef) + 113
+2   clang                         	0x000000010cbf1e9d clang::BackendConsumer::HandleTopLevelDecl(clang::DeclGroupRef) + 45
+3   clang                         	0x000000010cf37a36 clang::MultiplexConsumer::HandleInterestingDecl(clang::DeclGroupRef) + 38
+4   clang                         	0x000000010d03d5b0 clang::ASTReader::PassInterestingDeclsToConsumer() + 272
+5   clang                         	0x000000010cfbb72d clang::ASTReader::StartTranslationUnit(clang::ASTConsumer*) + 29
+6   clang                         	0x000000010dbb5ea9 clang::ParseAST(clang::Sema&, bool, bool) + 425
+7   clang                         	0x000000010cef08c4 clang::FrontendAction::Execute() + 52
+8   clang                         	0x000000010ce973d5 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 1573
+9   clang                         	0x000000010cf77028 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 4728
+10  clang                         	0x000000010b07dad1 cc1_main(llvm::ArrayRef<char const*>, char const*, void*) + 2337
+11  clang                         	0x000000010b079eb7 driver_main(int, char const**) + 5239
+12  clang                         	0x000000010b0784b5 main + 629
+13  libdyld.dylib                 	0x00007fff20358631 start + 1
+
+Thread 0 crashed with X86 Thread State (64-bit):
+  rax: 0x0000000000000000  rbx: 0x00007ffee4b82d30  rcx: 0x0000000000000000  rdx: 0x0000000000000000
+  rdi: 0x00007fdf5b02bec0  rsi: 0x00007ffee4b81578  rbp: 0x00007ffee4b82d20  rsp: 0x00007ffee4b815c0
+   r8: 0x00007fdf5a836bf8   r9: 0x0000000000000000  r10: 0x0000000000000000  r11: 0x0000000000000001
+  r12: 0x00007fdf5a836200  r13: 0x00007fdf5b030a00  r14: 0x0000000000000000  r15: 0x00007ffee4b82ce0
+  rip: 0x000000010cc2b986  rfl: 0x0000000000010246  cr2: 0x00000000000000c8
+  
+Logical CPU:     0
+Error Code:      0x00000004 (no mapping for user data read)
+Trap Number:     14
+
+Thread 0 instruction stream:
+  8b 74 d1 f8 ff c8 89 85-30 ff ff ff 4c 89 ff 48  .t......0...L..H
+  8b 75 b8 4c 89 f2 e8 3f-04 ff ff 80 7d d0 00 74  .u.L...?....}..t
+  c7 49 8b 7c 24 78 4c 89-f6 e8 9c 41 96 01 48 85  .I.|$xL....A..H.
+  d2 74 2d 49 89 c5 48 89-d3 48 c1 e3 03 45 31 ff  .t-I..H..H...E1.
+  90 90 90 90 90 90 90 90-90 90 4b 8b 74 3d 00 4c  ..........K.t=.L
+  89 e7 e8 43 fb ff ff 49-83 c7 08 4c 39 fb 75 ea  ...C...I...L9.u.
+ [4d]8b ae c8 00 00 00 49-8b 9e d0 00 00 00 49 39  M......I......I9	<==
+  dd 4c 8d 7d c0 75 20 e9-6c ff ff ff 90 90 90 90  .L.}.u .l.......
+  90 90 90 90 90 90 90 90-90 90 49 83 c5 08 4c 39  ..........I...L9
+  eb 0f 84 51 ff ff ff 49-8b 55 00 f6 82 00 05 00  ...Q...I.U......
+  00 20 75 e6 4c 89 ff 48-8d b5 a0 e8 ff ff e8 a7  . u.L..H........
+  03 ff ff 80 7d d0 00 74-d1 48 8d bd 28 ff ff ff  ....}..t.H..(...
+  
+Thread 0 last branch register state not available.
+
+
+Binary Images:
+       0x10b076000 -        0x10f339fff +clang (12.0.0 - 1200.0.32) <D64BC9CE-AE2C-3EE8-9FF4-B8DDA5E2820C> /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+       0x11f4a7000 -        0x11f542fff  dyld (832.7.1) <2705F0D8-C104-3DE9-BEB5-B1EF6E28656D> /usr/lib/dyld
+    0x7fff20076000 -     0x7fff20077fff  libsystem_blocks.dylib (78) <83E2F888-F4C1-3181-B21B-136A0D7293DD> /usr/lib/system/libsystem_blocks.dylib
+    0x7fff20078000 -     0x7fff200adfff  libxpc.dylib (2038.40.38) <DC50F7DD-1C4B-3BD2-A54D-C5D7D97A3718> /usr/lib/system/libxpc.dylib
+    0x7fff200ae000 -     0x7fff200c5fff  libsystem_trace.dylib (1277.50.1) <94196441-5456-342D-84D1-C60A9249D273> /usr/lib/system/libsystem_trace.dylib
+    0x7fff200c6000 -     0x7fff20161fff  libcorecrypto.dylib (1000.40.21) <2FA5C1BD-F41C-3FCF-B1FA-7BED6E19ABEE> /usr/lib/system/libcorecrypto.dylib
+    0x7fff20162000 -     0x7fff2018efff  libsystem_malloc.dylib (317.40.8) <3688DBCE-2FFD-3F98-B12B-69ABE231908D> /usr/lib/system/libsystem_malloc.dylib
+    0x7fff2018f000 -     0x7fff201d3fff  libdispatch.dylib (1271.40.12) <C55547DC-A05B-34A1-BD41-D54948D8F57F> /usr/lib/system/libdispatch.dylib
+    0x7fff201d4000 -     0x7fff2020cfff  libobjc.A.dylib (818.2) <DD09F187-80F1-308F-9395-912F27E9A390> /usr/lib/libobjc.A.dylib
+    0x7fff2020d000 -     0x7fff2020ffff  libsystem_featureflags.dylib (28.40.2) <3E1E8F98-E791-301D-909F-4CA205C94D1A> /usr/lib/system/libsystem_featureflags.dylib
+    0x7fff20210000 -     0x7fff20298fff  libsystem_c.dylib (1439.40.11) <8D791F3A-4848-302F-88CD-46D91DE73127> /usr/lib/system/libsystem_c.dylib
+    0x7fff20299000 -     0x7fff202eefff  libc++.1.dylib (904.4) <E7F465AC-C8FF-31DB-8EC4-7EBBA7468EB5> /usr/lib/libc++.1.dylib
+    0x7fff202ef000 -     0x7fff20307fff  libc++abi.dylib (904.4) <253848B5-ED35-3202-8593-5DCC763A8192> /usr/lib/libc++abi.dylib
+    0x7fff20308000 -     0x7fff20336fff  libsystem_kernel.dylib (7195.50.7) <41068F5C-74E3-3C98-9256-6A18364FB5BA> /usr/lib/system/libsystem_kernel.dylib
+    0x7fff20337000 -     0x7fff20342fff  libsystem_pthread.dylib (454.40.3) <78072EC6-2257-361A-AAF5-4A3C1832B5EB> /usr/lib/system/libsystem_pthread.dylib
+    0x7fff20343000 -     0x7fff2037dfff  libdyld.dylib (832.7.1) <0C66AB9F-E22C-3286-B76B-DA4008698CD2> /usr/lib/system/libdyld.dylib
+    0x7fff2037e000 -     0x7fff20387fff  libsystem_platform.dylib (254.40.4) <6C05D209-129A-373A-A90D-CC27AB18C091> /usr/lib/system/libsystem_platform.dylib
+    0x7fff20388000 -     0x7fff203b3fff  libsystem_info.dylib (542.40.3) <90DDEF9D-9DBA-3599-A9DD-A7F730AE945F> /usr/lib/system/libsystem_info.dylib
+    0x7fff2279c000 -     0x7fff227a5fff  libsystem_darwin.dylib (1439.40.11) <3BD9046F-FAED-3FD9-8191-49A4618555A3> /usr/lib/system/libsystem_darwin.dylib
+    0x7fff22bb6000 -     0x7fff22bc1fff  libsystem_notify.dylib (279.40.4) <73D358B2-6C2D-33DF-975C-BE9EE5F45A0F> /usr/lib/system/libsystem_notify.dylib
+    0x7fff24b0b000 -     0x7fff24b19fff  libsystem_networkextension.dylib (1295.40.29) <84A5011E-1511-30C7-86D8-514CFA59EF42> /usr/lib/system/libsystem_networkextension.dylib
+    0x7fff24b77000 -     0x7fff24b8dfff  libsystem_asl.dylib (385) <EB8BA94D-1B45-322E-9D26-272872423807> /usr/lib/system/libsystem_asl.dylib
+    0x7fff2626d000 -     0x7fff26274fff  libsystem_symptoms.dylib (1431.40.36) <81345ED1-342F-347F-B979-39846E607C8C> /usr/lib/system/libsystem_symptoms.dylib
+    0x7fff282b4000 -     0x7fff282c4fff  libsystem_containermanager.dylib (318.41.1) <BF178091-2151-3462-AB4F-A2E111650BA2> /usr/lib/system/libsystem_containermanager.dylib
+    0x7fff28fc3000 -     0x7fff28fc6fff  libsystem_configuration.dylib (1109.40.9) <EA408233-7EA5-33B5-B099-E9609DD3A0FF> /usr/lib/system/libsystem_configuration.dylib
+    0x7fff28fc7000 -     0x7fff28fcbfff  libsystem_sandbox.dylib (1441.40.38) <349F71A1-4C7C-3AE0-8A1B-B95CCBB2327F> /usr/lib/system/libsystem_sandbox.dylib
+    0x7fff29cce000 -     0x7fff29cd0fff  libquarantine.dylib (119.40.2) <3DD7F9EE-9B9A-3896-A8CC-4D5BE49385AE> /usr/lib/system/libquarantine.dylib
+    0x7fff2a24f000 -     0x7fff2a253fff  libsystem_coreservices.dylib (127) <670DDFEB-8100-3C51-BC96-76BD46A21DF6> /usr/lib/system/libsystem_coreservices.dylib
+    0x7fff2a457000 -     0x7fff2a469fff  libz.1.dylib (76) <0AF4F195-1F20-3F59-B09F-31E7249890D5> /usr/lib/libz.1.dylib
+    0x7fff2a46a000 -     0x7fff2a4b1fff  libsystem_m.dylib (3186.40.2) <0276200D-C6F2-3E79-AFDC-E4D7F60A7837> /usr/lib/system/libsystem_m.dylib
+    0x7fff2a4b3000 -     0x7fff2a4b8fff  libmacho.dylib (973.4) <F2E3F7A6-B15A-30ED-A6AD-4EFEC37CF3E7> /usr/lib/system/libmacho.dylib
+    0x7fff2a4d5000 -     0x7fff2a4e0fff  libcommonCrypto.dylib (60178.40.2) <66E10FDF-896D-35F4-B9A8-8EE9400AC23A> /usr/lib/system/libcommonCrypto.dylib
+    0x7fff2a4e1000 -     0x7fff2a4ebfff  libunwind.dylib (200.10) <BD13DE19-15F8-3982-ACCB-CD8C036D5D2B> /usr/lib/system/libunwind.dylib
+    0x7fff2a4ec000 -     0x7fff2a4f3fff  liboah.dylib (203.1.3) <5EC28751-3BE8-3BB7-9DBE-305225CBD41B> /usr/lib/liboah.dylib
+    0x7fff2a4f4000 -     0x7fff2a4fefff  libcopyfile.dylib (173.40.2) <17A9CD2E-0527-3FF7-9CFA-57B30133DFB5> /usr/lib/system/libcopyfile.dylib
+    0x7fff2a4ff000 -     0x7fff2a506fff  libcompiler_rt.dylib (102.2) <FE958653-7FEC-3ADD-9AC0-A386E47208CF> /usr/lib/system/libcompiler_rt.dylib
+    0x7fff2a507000 -     0x7fff2a509fff  libsystem_collections.dylib (1439.40.11) <31C10DA5-F9B8-36E4-B859-8F6B845FF65D> /usr/lib/system/libsystem_collections.dylib
+    0x7fff2a50a000 -     0x7fff2a50cfff  libsystem_secinit.dylib (87.40.10) <BB2A70F5-BECC-34BD-90FE-14D31C5FD80D> /usr/lib/system/libsystem_secinit.dylib
+    0x7fff2a50d000 -     0x7fff2a50ffff  libremovefile.dylib (49.40.3) <24CE2291-AEB3-30C9-94E8-535AA6E9C6F2> /usr/lib/system/libremovefile.dylib
+    0x7fff2a510000 -     0x7fff2a510fff  libkeymgr.dylib (31) <B47F66C0-27F4-3B77-BAA0-85E895A7421D> /usr/lib/system/libkeymgr.dylib
+    0x7fff2a511000 -     0x7fff2a518fff  libsystem_dnssd.dylib (1310.40.42) <F54EC6FB-DEC3-3DA8-A749-4892F50D1F08> /usr/lib/system/libsystem_dnssd.dylib
+    0x7fff2a519000 -     0x7fff2a51efff  libcache.dylib (83) <C83C4423-D12A-32A0-875D-81450DF40F42> /usr/lib/system/libcache.dylib
+    0x7fff2a51f000 -     0x7fff2a520fff  libSystem.B.dylib (1292.50.1) <14E3BB7B-B95F-3700-8D12-B9B2012C0AF8> /usr/lib/libSystem.B.dylib
+    0x7fff2d94a000 -     0x7fff2d94afff  liblaunch.dylib (2038.40.38) <D71781B5-4034-3349-BBE5-4B796CD3629A> /usr/lib/system/liblaunch.dylib
+    0x7fff2fde8000 -     0x7fff2fde8fff  libsystem_product_info_filter.dylib (8.40.1) <FF59B842-1290-3C4A-9015-AC972563406E> /usr/lib/system/libsystem_product_info_filter.dylib
+    0x7fff40a36000 -     0x7fff40a65fff  libncurses.5.4.dylib (57) <2555F8FB-385E-3E1A-993E-A6B9F2BA9FD6> /usr/lib/libncurses.5.4.dylib
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 1253276
+    thread_create: 0
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=573.1M resident=0K(0%) swapped_out_or_unallocated=573.1M(100%)
+Writable regions: Total=56.1M written=0K(0%) resident=0K(0%) swapped_out=0K(0%) unallocated=56.1M(100%)
+ 
+                                VIRTUAL   REGION 
+REGION TYPE                        SIZE    COUNT (non-coalesced) 
+===========                     =======  ======= 
+Kernel Alloc Once                    8K        1 
+MALLOC                            47.6M       22 
+MALLOC guard page                   16K        4 
+STACK GUARD                       56.0M        1 
+Stack                             8192K        2 
+__DATA                            4420K       46 
+__DATA_CONST                       242K       34 
+__DATA_DIRTY                        58K       21 
+__LINKEDIT                       501.3M        5 
+__OBJC_RO                         61.0M        1 
+__OBJC_RW                         2468K        2 
+__TEXT                            71.9M       46 
+mapped file                       29.4M        2 
+shared memory                        4K        1 
+===========                     =======  ======= 
+TOTAL                            782.2M      188 
+
